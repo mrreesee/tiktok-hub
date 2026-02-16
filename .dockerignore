@@ -1,0 +1,9 @@
+node_modules
+dist
+/.git
+src/node_modules
+tiktok-hub-clone
+*.log
+npm-debug.log*
+Dockerfile
+docker-compose*.yml
