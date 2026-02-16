@@ -1,0 +1,11 @@
+[Unit]
+Description=TikTok Hub Docker container
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker run --rm --name tiktok-hub -p 80:80 tiktok-hub:latest
+ExecStop=/usr/bin/docker stop -t 2 tiktok-hub
+
+[Install]
+WantedBy=multi-user.target
