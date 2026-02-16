@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Usage: run this from the project root on the EC2 instance
-# Example: cd /home/ec2-user/app && sudo bash deploy/deploy_ec2.sh
+# Ensure the script runs from the project root (one level above the `deploy/` dir)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+cd "$PROJECT_ROOT"
+
+# Usage: run this from anywhere on the EC2 instance (script will change to project root)
+# Example: sudo bash deploy/deploy_ec2.sh
 
 echo "Updating system and installing Docker..."
 sudo yum update -y
